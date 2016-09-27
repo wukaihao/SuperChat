@@ -29,8 +29,6 @@ import scala.collection.mutable.ArrayBuffer
 abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActivity {
 
   //var ARG_CONTACT_NUMBER: String = "contact_number"
-  var image_me : ImageView = _
-  var image_anthor : ImageView = _
   var adapter: ChatMessagesAdapter = _
   var messageBox: EditText = _
   var isTypingBox: TextView = _
@@ -56,17 +54,14 @@ abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActiv
     super.onCreate(savedInstanceState)
     overridePendingTransition(R.anim.slide_from_right, R.anim.fade_scale_out)
     setContentView(R.layout.activity_chat)
-    //title实例化
     val actionBar = getSupportActionBar
     val avatarView = getLayoutInflater.inflate(R.layout.avatar_actionview, null)
     actionBar.setCustomView(avatarView)
     actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
-    //ThemeManager设置主题
     ThemeManager.applyTheme(this, getSupportActionBar)
  //   getSupportActionBar.setBackgroundDrawable(new ColorDrawable(R.color.green_darker))
-    //取出Intent中传递的数据
+
     val extras: Bundle = getIntent.getExtras
-    //获取到用户的key
     activeKey = getKey(extras.getString("key"))
     fromNotifications = extras.getBoolean("notification", false)
     val thisActivity = this
@@ -74,25 +69,20 @@ abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActiv
     AntoxLog.debug("key = " + activeKey,AntoxLog.DEFAULT_TAG)
 
     val db = State.db
-    //获取数据源并绑定adapter
-    image_me = this.findViewById(R.id.image_me).asInstanceOf[ImageView]
-    image_anthor = this.findViewById(R.id.image_anthor).asInstanceOf[ImageView]
-    /*image_me.*/
     adapter = new ChatMessagesAdapter(this,
       new util.ArrayList(mutableSeqAsJavaList(getActiveMessageList(numMessagesShown))))
+
     displayNameView = this.findViewById(R.id.displayName).asInstanceOf[TextView]
     statusIconView = this.findViewById(R.id.icon)
     avatarActionView = this.findViewById(R.id.avatarActionView)
-    //返回点击事件
     avatarActionView.setOnClickListener(new View.OnClickListener() {
       override def onClick(v: View) {
-        //关闭界面
         thisActivity.finish()
       }
     })
 
     layoutManager.setStackFromEnd(true)
-    //填充之前的聊天记录
+
     chatListView = this.findViewById(R.id.chat_messages).asInstanceOf[RecyclerView]
     chatListView.setLayoutManager(layoutManager)
     chatListView.setAdapter(adapter)
@@ -111,20 +101,19 @@ abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActiv
       }
 
     })
-      //发送按钮的点击事件
+
     val b = this.findViewById(R.id.send_message_button)
     b.setOnClickListener(new View.OnClickListener() {
       override def onClick(v: View) {
-
         onSendMessage()
+
         setTyping(typing = false)
       }
     })
-    //编辑框
+
     messageBox = this.findViewById(R.id.your_message).asInstanceOf[EditText]
     messageBox.setFilters(Array[InputFilter](new LengthFilter(MESSAGE_LENGTH_LIMIT)))
     messageBox.setText(db.getContactUnsentMessage(activeKey))
-    //编辑框监听器
     messageBox.addTextChangedListener(new TextWatcher() {
       override def beforeTextChanged(charSequence: CharSequence, start: Int, count: Int, after: Int) {
         val isTyping = after > 0
@@ -168,7 +157,7 @@ abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActiv
           updateChat(getActiveMessageList(numMessagesShown))
         })
   }
-//更新聊天信息
+
   def updateChat(messageList: Seq[Message]): Unit = {
     //FIXME make this more efficient
     adapter.removeAll()
@@ -200,7 +189,6 @@ abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActiv
   }
 
   private def onScrolledToTop(): Unit = {
-    //默认信息条数为50
     numMessagesShown += defaultMessagePageSize
     Observable[Seq[Message]](subscriber => {
       subscriber.onNext(getActiveMessageList(numMessagesShown))
@@ -209,7 +197,7 @@ abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActiv
       .observeOn(AndroidMainThreadScheduler())
       .subscribe(updateChat(_))
   }
-//信息发送调用的方法
+
   private def onSendMessage() {
     AntoxLog.debug("sendMessage")
     val mMessage = validateMessageBox()

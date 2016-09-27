@@ -45,7 +45,7 @@ object ProfileSettingsActivity {
       true
     }
   }
-//轻量级存储数据源
+
   private def bindPreferenceSummaryToValue(preference: Preference) {
     preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener)
     sBindPreferenceSummaryToValueListener.onPreferenceChange(preference, PreferenceManager.getDefaultSharedPreferences(preference.getContext)
@@ -73,14 +73,14 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
       if (savedInstanceState.getBoolean("showing_avatar_dialog", false)) avatarDialog.show()
     }
 
-    bindPreferenceSummaryToValue(findPreference("nickname"))//名字
-    bindPreferenceSummaryToValue(findPreference("status"))//状态
-    bindPreferenceSummaryToValue(findPreference("status_message"))//状态消息
-    bindPreferenceSummaryToValue(findPreference("tox_id"))//ID
-    bindPreferenceSummaryToValue(findPreference("active_account"))//账户配置名称
+    bindPreferenceSummaryToValue(findPreference("nickname"))
+    bindPreferenceSummaryToValue(findPreference("status"))
+    bindPreferenceSummaryToValue(findPreference("status_message"))
+    bindPreferenceSummaryToValue(findPreference("tox_id"))
+    bindPreferenceSummaryToValue(findPreference("active_account"))
 
 
-    val passwordPreference = findPreference("password")//密码
+    val passwordPreference = findPreference("password")
     passwordPreference.setOnPreferenceClickListener(new OnPreferenceClickListener {
       override def onPreferenceClick(preference: Preference): Boolean = {
         createPasswordDialog()
@@ -89,7 +89,7 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
     })
     bindPreferenceIfExists(passwordPreference)
 
-    val toxMePreference = findPreference("toxme_info")//我的信息
+    val toxMePreference = findPreference("toxme_info")
     toxMePreference.setOnPreferenceClickListener(new OnPreferenceClickListener {
       override def onPreferenceClick(preference: Preference): Boolean = {
         createToxMeAddressDialog()
@@ -98,7 +98,7 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
     })
     bindPreferenceIfExists(toxMePreference)
 
-    val toxIDPreference = findPreference("tox_id")//ID
+    val toxIDPreference = findPreference("tox_id")
     toxIDPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 
       override def onPreferenceClick(preference: Preference): Boolean = {
@@ -107,7 +107,7 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
       }
     })
 
-    val avatarPreference = findPreference("avatar")//头像
+    val avatarPreference = findPreference("avatar")
     avatarPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
       override def onPreferenceClick(preference: Preference): Boolean = {
         avatarDialog.show()
@@ -115,7 +115,7 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
       }
     })
 
-    val exportProfile = findPreference("export")//导出配置
+    val exportProfile = findPreference("export")
     val thisActivity = this
     exportProfile.setOnPreferenceClickListener(new OnPreferenceClickListener {
       override def onPreferenceClick(preference: Preference): Boolean = {
@@ -130,35 +130,36 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
       }
     })
 
-    val deleteAccount = findPreference("delete")//清空记录
+    val deleteAccount = findPreference("delete")
     deleteAccount.setOnPreferenceClickListener(new OnPreferenceClickListener {
       override def onPreferenceClick(preference: Preference): Boolean = {
         val builder = new Builder(ProfileSettingsActivity.this)
-        builder.setMessage(R.string.delete_account_dialog_message)//信息内容
+        builder.setMessage(R.string.delete_account_dialog_message)
 
-        builder.setTitle(R.string.delete_account_dialog_title)//标题
-        //创建删除对话框（清空账户信息）
+        builder.setTitle(R.string.delete_account_dialog_title)
+
         builder.setPositiveButton(R.string.delete_account_dialog_confirm, new OnClickListener {
           override def onClick(dialog: DialogInterface, which: Int): Unit = {
             State.deleteActiveAccount(thisActivity)
           }
         })
-        //取消对话框
+
         builder.setNegativeButton(getString(R.string.delete_account_dialog_cancel), null)
+
         builder.show()
 
         true
       }
 
     })
-      //生成新的垃圾信息阻挡随机数
+
     val nospamPreference = findPreference("nospam")
     nospamPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
       override def onPreferenceClick(preference: Preference): Boolean = {
         val builder = new Builder(ProfileSettingsActivity.this)
         builder.setMessage(R.string.reset_tox_id_dialog_message)
           .setTitle(R.string.reset_tox_id_dialog_title)
-          //重置ID
+
         builder.setPositiveButton(getString(R.string.reset_tox_id_dialog_confirm), new OnClickListener {
           override def onClick(dialog: DialogInterface, which: Int): Unit = {
             try {
@@ -183,9 +184,11 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
             }
           }
         })
-          //重置ID取消
+
         builder.setNegativeButton(getString(R.string.button_cancel), null)
+
         builder.show()
+
         true
       }
     })
@@ -200,7 +203,7 @@ class ProfileSettingsActivity extends BetterPreferenceActivity {
       bindPreferenceSummaryToValue(preference)
     }
   }
-//创建ID通话框
+
   def createToxIDDialog() {
     val builder = new AlertDialog.Builder(ProfileSettingsActivity.this)
     val inflater = ProfileSettingsActivity.this.getLayoutInflater

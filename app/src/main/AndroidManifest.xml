@@ -185,9 +185,6 @@
             android:name=".activities.PublishActivity"
             android:label="@string/title_activity_publish" >
         </activity>
-        <activity
-            android:name="wangwang.activity.HelpCenterActivity"   >
-        </activity>
     </application>
 
 </manifest>

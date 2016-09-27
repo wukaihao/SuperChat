@@ -41,14 +41,13 @@ class ChatActivity extends GenericChatActivity[FriendKey] {
     ThemeManager.applyTheme(this, getSupportActionBar)   //设置actionbar颜色的调用方法
 //    getSupportActionBar.setBackgroundDrawable(new ColorDrawable(R.color.green_darker))
 
-    /*this.findViewById(R.id.info).setVisibility(View.GONE)*/
+    this.findViewById(R.id.info).setVisibility(View.GONE)
 
     /* Set up on click actions for attachment buttons. Could possible just add onClick to the XML?? */
-    //绑定 相机 照片 三个按键
     val attachmentButton = this.findViewById(R.id.attachment_button)
     val cameraButton = this.findViewById(R.id.camera_button)
     val imageButton = this.findViewById(R.id.image_button)
-    //绑定点击事件
+
     attachmentButton.setOnClickListener(new View.OnClickListener() {
       override def onClick(v: View) {
         val friendInfo = State.db.getFriendInfo(activeKey)
@@ -56,6 +55,7 @@ class ChatActivity extends GenericChatActivity[FriendKey] {
           Toast.makeText(thisActivity, getResources.getString(R.string.chat_ft_failed_friend_offline), Toast.LENGTH_SHORT).show()
           return
         }
+
         val path = new File(Environment.getExternalStorageDirectory + "//DIR//")
         val fileDialog = new FileDialog(thisActivity, path, false)
         fileDialog.addFileListener(new FileDialog.FileSelectedListener() {
@@ -67,7 +67,7 @@ class ChatActivity extends GenericChatActivity[FriendKey] {
 
       }
     })
-     //相机点击事件
+
     cameraButton.setOnClickListener(new View.OnClickListener() {
       override def onClick(v: View) {
         val friendInfo = State.db.getFriendInfo(activeKey)
@@ -92,7 +92,7 @@ class ChatActivity extends GenericChatActivity[FriendKey] {
 
       }
     })
-      //相册点击事件
+
     imageButton.setOnClickListener(new View.OnClickListener() {
       override def onClick(v: View) {
         val friendInfo = State.db.getFriendInfo(activeKey)
@@ -106,19 +106,20 @@ class ChatActivity extends GenericChatActivity[FriendKey] {
       }
     })
   }
-  //存储数据  等下次再打开的时候调用
   override def onSaveInstanceState(savedInstanceState: Bundle): Unit = {
     super.onSaveInstanceState(savedInstanceState)
+
     //save the photo path to prevent it being lost on rotation
     savedInstanceState.putString(photoPathSaveKey, photoPath.getOrElse(""))
   }
 
   override def onRestoreInstanceState(savedInstanceState: Bundle): Unit = {
     super.onRestoreInstanceState(savedInstanceState)
+
     val rawPhotoPath = savedInstanceState.getString(photoPathSaveKey)
     photoPath = rawPhotoPath.toOption
   }
-//运行过程中序列化好友的信息
+
   override def onResume(): Unit = {
     super.onResume()
     //clear notifications that have already been seen
@@ -135,11 +136,12 @@ class ChatActivity extends GenericChatActivity[FriendKey] {
   private def updateDisplayedState(friendInfoList: Seq[FriendInfo]): Unit = {
     val thisActivity = this
     val key = activeKey
-    //序列化好友信息
     val mFriend: Option[FriendInfo] = friendInfoList.find(f => f.key == key)
+
     mFriend match {
       case Some(friend) =>
         thisActivity.setDisplayName(friend.getDisplayName)
+
         val avatar = friend.avatar
         avatar.foreach(avatar => {
           val avatarView = this.findViewById(R.id.avatar).asInstanceOf[CircleImageView]

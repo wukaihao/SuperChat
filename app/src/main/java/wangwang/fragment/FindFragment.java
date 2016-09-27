@@ -79,8 +79,6 @@ public class FindFragment extends Fragment {
         });
         setListViewHeightBasedOnChildren(listView);    //调用该方法设定该ListView的高度
 
-
-
         listView2 = (ListView)view.findViewById(R.id.findFragment_listView2);
         listItems2 = new ArrayList<ListViewItemModel>();
         for (int i = 0; i < titles2.length; i++) {
@@ -100,7 +98,6 @@ public class FindFragment extends Fragment {
             }
         });
         setListViewHeightBasedOnChildren(listView2);    //调用该方法设定该ListView的高度
-
 
 
         listView3 = (ListView)view.findViewById(R.id.findFragment_listView3);

@@ -125,14 +125,8 @@ public class FriendsFragment extends Fragment {
 //
 //            }
 //        });
-<<<<<<< HEAD
     }
     public void Friend(){
-=======
-
-
-   /* public void Friend(){
->>>>>>> 780f181d73e2af321a0a018f42d67614877955af
         String url="http://icoral.cn:1199/twitter/?toxid=";
         List<FriendInfo> list= MyApplaction.getIntance().getFriendInfoList();
         for(int i=0;i<list.size();i++){
@@ -210,16 +204,6 @@ public class FriendsFragment extends Fragment {
 
             super.onPostExecute(result);
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 780f181d73e2af321a0a018f42d67614877955af
     }
-
-
 */
-<<<<<<< HEAD
-=======
-
->>>>>>> 780f181d73e2af321a0a018f42d67614877955af
 }

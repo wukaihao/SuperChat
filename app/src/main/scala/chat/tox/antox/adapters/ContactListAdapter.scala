@@ -15,8 +15,6 @@ import chat.tox.antox.fragments.ContactItemType
 import chat.tox.antox.tox.ToxSingleton
 import chat.tox.antox.utils.{IconColor, _}
 import chat.tox.antox.wrapper.{GroupKey, FriendKey, ContactKey}
-import wangwang.util.CharacterParser
-
 //import de.hdodenhof.circleimageview.CircleImageView
 import rx.lang.scala.Subscription
 
@@ -25,7 +23,6 @@ import scala.collection.JavaConversions._
 object ContactListAdapter {
 
   private class ViewHolder {
-    var catalog: TextView = _
 
     var firstText: TextView = _
 
@@ -46,8 +43,6 @@ object ContactListAdapter {
 }
 
 class ContactListAdapter(private var context: Context) extends BaseAdapter with Filterable {
-
-  val  CharacterP: CharacterParser = new CharacterParser
 
   private val originalData: util.ArrayList[LeftPaneItem] = new util.ArrayList[LeftPaneItem]()
 
@@ -98,8 +93,6 @@ class ContactListAdapter(private var context: Context) extends BaseAdapter with 
 
         case ContactItemType.FRIEND | ContactItemType.GROUP =>
           newConvertView = layoutInflater.inflate(R.layout.contact_list_item, null)
-          //首字母行
-          holder.catalog = newConvertView.findViewById(R.id.catalog).asInstanceOf[TextView]
           holder.firstText = newConvertView.findViewById(R.id.contact_name).asInstanceOf[TextView]
           holder.secondText = newConvertView.findViewById(R.id.contact_status).asInstanceOf[TextView]
           holder.icon = newConvertView.findViewById(R.id.icon).asInstanceOf[TextView]
@@ -112,19 +105,7 @@ class ContactListAdapter(private var context: Context) extends BaseAdapter with 
     } else {
       holder = newConvertView.getTag.asInstanceOf[ViewHolder]
     }
-
     val item = getItem(position)
-    //此处填写表头
-    if (item.first.charAt(0).toString.getBytes().length != item.first.charAt(0).toString.length()) {
-      holder.catalog.setText(CharacterP.convert(item.first.charAt(0).toString).toCharArray.charAt(0).toUpper.toString)
-    }
-    else if (item.first.toUpperCase.charAt(0).toString.matches("[A-Z]")) {
-      holder.catalog.setText(item.first.toUpperCase.charAt(0).toString)
-    }
-    else {
-      holder.catalog.setText("#")
-    }
-
     holder.firstText.setText(item.first)
     holder.firstText.setTextColor(context.getResources.getColor(R.color.black))
 
@@ -168,16 +149,12 @@ class ContactListAdapter(private var context: Context) extends BaseAdapter with 
       } else {
         holder.icon.setBackgroundDrawable(drawable)
       }
-
       if (item.favorite) {
         holder.favorite.setVisibility(View.VISIBLE)
       } else {
         holder.favorite.setVisibility(View.GONE)
       }
-
     }
-
-
     if (holder.timeText != null) {
       holder.timeText.setTextColor(context.getResources.getColor(R.color.grey_dark))
     }

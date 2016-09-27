@@ -4,15 +4,6 @@
     android:layout_height="wrap_content"
     android:background="@drawable/list_selector"
     android:padding="10dp" >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/line_catalog">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:id="@+id/catalog"/>
-    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -20,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/line_catalog">
+        android:layout_height="50dp">
 
         <RelativeLayout
             android:layout_width="60dp"
@@ -116,4 +106,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+</RelativeLayout> 
