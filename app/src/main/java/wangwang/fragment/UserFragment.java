@@ -64,18 +64,6 @@ public class UserFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         View view=getView();
-<<<<<<< HEAD
-        my_ll_01=(LinearLayout)view.findViewById(R.id.my_ll_01);
-        my_ll_01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*Intent intent = new Intent(getActivity(), UserSettingsActivity.class);*/
-                startActivity(new Intent(getContext(), UserSettingsActivity.class));
-            }
-        });
-        my_ll_06=(LinearLayout)view.findViewById(R.id.my_ll_06);
-        my_ll_06.setOnClickListener(new View.OnClickListener() {
-=======
 
         listView1 = (ListView)view.findViewById(R.id.userFragment_listView1);
         listItems = new ArrayList<ListViewItemModel>();
@@ -90,7 +78,6 @@ public class UserFragment extends Fragment {
         listView1.setAdapter(adapter);
         setListViewHeightBasedOnChildren(listView1);  //调用该方法设定该ListView的高度
         listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
->>>>>>> 6eed5599947c0efa5d0628889ecf2ec8cf51d72b
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub

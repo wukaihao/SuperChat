@@ -42,7 +42,7 @@ import chat.tox.antox.wrapper.FriendInfo;
  */
 public class FriendsFragment extends Fragment {
     //private WebView webView;
-    /*private DropDownListView dropDownListView;*/
+    private DropDownListView dropDownListView;
     private ImageView header_imageView2;
     private List<Friendster> myData;
     private FriendAdapter friendAdapter;
@@ -73,11 +73,10 @@ public class FriendsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-      /*  View view=getView();
-       *//* dropDownListView=(DropDownListView)view.findViewById(R.id.list_view);*//*
+        View view=getView();
+        dropDownListView=(DropDownListView)view.findViewById(R.id.list_view);
         View v=LayoutInflater.from(getActivity()).inflate(R.layout.header, null);
-        *//*dropDownListView.addHeaderView(v);*//*
-
+        dropDownListView.addHeaderView(v);
 
         textView=(TextView)v.findViewById(R.id.textView1);
 
@@ -102,8 +101,8 @@ public class FriendsFragment extends Fragment {
         }
         myData=new ArrayList<>();
         Friend();
-        friendAdapter=new FriendAdapter(getContext(),myData);*/
-        /*dropDownListView.setAdapter(friendAdapter);
+        friendAdapter=new FriendAdapter(getContext(),myData);
+        dropDownListView.setAdapter(friendAdapter);
         //允许使用底部样式
         dropDownListView.setOnBottomStyle(false);
 
@@ -117,7 +116,7 @@ public class FriendsFragment extends Fragment {
                 dropDownListView.onDropDownComplete();
             }
         });
-*/
+
 //        // set on bottom listener
 //        dropDownListView.setOnBottomListener(new View.OnClickListener() {
 //
@@ -126,9 +125,8 @@ public class FriendsFragment extends Fragment {
 //
 //            }
 //        });
-   }
-
-   /* public void Friend(){
+    }
+    public void Friend(){
         String url="http://icoral.cn:1199/twitter/?toxid=";
         List<FriendInfo> list= MyApplaction.getIntance().getFriendInfoList();
         for(int i=0;i<list.size();i++){
@@ -206,11 +204,6 @@ public class FriendsFragment extends Fragment {
 
             super.onPostExecute(result);
         }
-<<<<<<< HEAD
-    }*/
-
-=======
     }
 */
->>>>>>> 6eed5599947c0efa5d0628889ecf2ec8cf51d72b
 }

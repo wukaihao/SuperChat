@@ -72,21 +72,6 @@ public class FindFragment extends Fragment {
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-<<<<<<< HEAD
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(),Main4Activity.class));
-            }
-        });
-       /* find_bt_02.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Main4Activity.class);
-                startActivity(intent);
-            }
-        });*/
-        find_bt_03=(LinearLayout)view.findViewById(R.id.find_bt_03);
-        find_bt_03.setOnClickListener(new View.OnClickListener() {
-=======
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
                 Toast.makeText(getActivity(), "点击了" + position, Toast.LENGTH_SHORT).show();
@@ -108,7 +93,6 @@ public class FindFragment extends Fragment {
         adapter2.setListItems(listItems2);
         listView2.setAdapter(adapter2);
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
->>>>>>> 6eed5599947c0efa5d0628889ecf2ec8cf51d72b
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
