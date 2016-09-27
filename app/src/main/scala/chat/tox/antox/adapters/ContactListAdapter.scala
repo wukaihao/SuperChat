@@ -112,6 +112,7 @@ class ContactListAdapter(private var context: Context) extends BaseAdapter with 
     } else {
       holder = newConvertView.getTag.asInstanceOf[ViewHolder]
     }
+
     val item = getItem(position)
     //此处填写表头
     if (item.first.charAt(0).toString.getBytes().length != item.first.charAt(0).toString.length()) {
@@ -167,12 +168,16 @@ class ContactListAdapter(private var context: Context) extends BaseAdapter with 
       } else {
         holder.icon.setBackgroundDrawable(drawable)
       }
+
       if (item.favorite) {
         holder.favorite.setVisibility(View.VISIBLE)
       } else {
         holder.favorite.setVisibility(View.GONE)
       }
+
     }
+
+
     if (holder.timeText != null) {
       holder.timeText.setTextColor(context.getResources.getColor(R.color.grey_dark))
     }
