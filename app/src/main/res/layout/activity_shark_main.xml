@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#ff1e1e1e"
+    tools:context="com.example.wangwang.wangwang.activity.SharkActivity">
+
+    <ImageView
+        android:id="@+id/shakeBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:contentDescription="@null"
+        android:src="@drawable/shakehideimg_man"/>
+    <LinearLayout
+        android:id="@+id/shake_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:id="@+id/shakeImgUp"
+            android:layout_width="fill_parent"
+            android:layout_height="255dp"
+            android:background="#111"
+            android:visibility="visible" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@null"
+                android:src="@drawable/shake_logo_up"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/shakeImgDown"
+            android:layout_width="fill_parent"
+            android:layout_height="255dp"
+            android:background="#111"
+            android:visibility="visible" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@null"
+                android:src="@drawable/shake_logo_down"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

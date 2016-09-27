@@ -1,0 +1,238 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.wangwang.wangwang.fragment.FindFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--<LinearLayout-->
+                <!--android:id="@+id/find_bt_01"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:background="#ffffff"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="25dp"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:src="@drawable/find_friends" />-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:gravity="fill_vertical"-->
+                    <!--android:text="朋友圈"-->
+                    <!--android:textSize="16sp" />-->
+
+            <!--</LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/find_bt_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/icon_de_saoyisao" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="fill_vertical"
+                        android:text="扫一扫"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#96000000"></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/find_bt_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/icon_de_yao" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="fill_vertical"
+                        android:text="摇一摇"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/find_bt_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/icon_de_nearby" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="fill_vertical"
+                        android:text="附近的人"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#96000000"></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/find_bt_05"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/icon_de_ping" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="fill_vertical"
+                        android:text="漂流瓶"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/find_bt_06"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/icon_de_shop" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="fill_vertical"
+                        android:text="购物"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#96000000"></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/find_bt_07"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/icon_de_game" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="fill_vertical"
+                        android:text="游戏"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:id="@+id/find_bt_08"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:background="#ffffff"-->
+                <!--android:orientation="horizontal">-->
+                <!-- -->
+                <!--<ImageButton-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:src="@drawable/add_12"-->
+                    <!--android:background="#ffffff"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</FrameLayout>
