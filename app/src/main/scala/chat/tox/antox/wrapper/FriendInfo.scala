@@ -5,7 +5,7 @@ import java.io.File
 import im.tox.tox4j.core.data.ToxNickname
 import im.tox.tox4j.core.enums.ToxUserStatus
 
-case class FriendInfo(
+case class FriendInfo  (
   online: Boolean,
   name: ToxNickname,
   alias: Option[ToxNickname],

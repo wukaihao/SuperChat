@@ -5,21 +5,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import chat.tox.antox.R;
 import wangwang.adapter.FragmentAdapter;
-import wangwang.entity.SlidingMenuView;
 
 
 public class FirstActivity extends AppCompatActivity {
-
-    private SlidingMenuView slideMenu1;
-
-
     private ViewPager viewPager;
     private RadioGroup rg_tab_bar;
     private RadioButton rb_channel;
@@ -43,29 +36,7 @@ public class FirstActivity extends AppCompatActivity {
         mAdapter=new FragmentAdapter(getSupportFragmentManager());
         bindViews();
         rb_channel.setChecked(true);
-
-        //提示当前菜单栏状态（open or close）
-        slideMenu1.setOnStatusListener(new SlidingMenuView.OnStatusListener() {
-            @Override
-            public void statusChanged(SlidingMenuView.Status status) {
-                if (status == SlidingMenuView.Status.Open) {
-                    Toast.makeText(getApplicationContext(), "Open", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Close", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-
     }
-
-    //用户界面打开菜单栏对应的按钮
-    public boolean mySetting (View v){
-        slideMenu1.toggle();
-        return false;
-    }
-
     private void bindViews() {
         rg_tab_bar = (RadioGroup) findViewById(R.id.rg_tab_bar);
         rb_channel = (RadioButton) findViewById(R.id.rb_channel);
