@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -64,6 +65,21 @@ public class UserFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         View view=getView();
+<<<<<<< HEAD
+=======
+
+        my_ll_01=(LinearLayout)view.findViewById(R.id.my_ll_01);
+        my_ll_01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent intent = new Intent(getActivity(), UserSettingsActivity.class);*/
+                startActivity(new Intent(getContext(), UserSettingsActivity.class));
+            }
+        });
+        my_ll_06=(LinearLayout)view.findViewById(R.id.my_ll_06);
+        my_ll_06.setOnClickListener(new View.OnClickListener() {
+
+>>>>>>> 780f181d73e2af321a0a018f42d67614877955af
 
         listView1 = (ListView)view.findViewById(R.id.userFragment_listView1);
         listItems = new ArrayList<ListViewItemModel>();
@@ -78,6 +94,10 @@ public class UserFragment extends Fragment {
         listView1.setAdapter(adapter);
         setListViewHeightBasedOnChildren(listView1);  //调用该方法设定该ListView的高度
         listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 780f181d73e2af321a0a018f42d67614877955af
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
