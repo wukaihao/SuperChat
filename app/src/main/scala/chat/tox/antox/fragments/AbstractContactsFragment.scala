@@ -70,9 +70,9 @@ abstract class AbstractContactsFragment extends Fragment with OnItemClickListene
     contactsListView.setOnItemLongClickListener(this)
 
     if (showFab) {
-      val fab = rootView.findViewById(R.id.fab).asInstanceOf[FloatingActionButton]
-      val parser = getResources.getXml(R.color.fab_colors_list)
-      fab.setBackgroundTintList(ColorStateList.createFromXml(getResources, parser))
+      val fab = rootView.findViewById(R.id.fab).asInstanceOf[ImageView]
+      /*val parser = getResources.getXml(R.color.fab_colors_list)*/
+      /*fab.setBackgroundTintList(ColorStateList.createFromXml(getResources, parser))*/
       rootView.findViewById(R.id.fab).setVisibility(View.VISIBLE)
 //      rootView.findViewById(R.id.fab).setVisibility(View.GONE)
     } else {
@@ -97,7 +97,7 @@ abstract class AbstractContactsFragment extends Fragment with OnItemClickListene
       rootView.findViewById(R.id.contact_search_view).setVisibility(View.GONE)
     }
 
-    rootView.findViewById(R.id.center_text).setVisibility(View.GONE)
+      rootView.findViewById(R.id.center_text).setVisibility(View.GONE)
 
     rootView
   }

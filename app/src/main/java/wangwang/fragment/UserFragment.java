@@ -46,8 +46,8 @@ public class UserFragment extends Fragment {
         my_ll_01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UserSettingsActivity.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(getActivity(), UserSettingsActivity.class);*/
+                startActivity(new Intent(getContext(), UserSettingsActivity.class));
             }
         });
         my_ll_06=(LinearLayout)view.findViewById(R.id.my_ll_06);

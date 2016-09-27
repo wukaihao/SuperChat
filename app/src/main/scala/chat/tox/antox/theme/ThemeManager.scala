@@ -15,7 +15,7 @@ object ThemeManager {
 
   private var _primaryColor: Int = _
   var _primaryColorDark: Int = _
-
+    //用于保存软件配置参数
   private var preferences: SharedPreferences = _
 
   def init(context: Context): Unit = {

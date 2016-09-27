@@ -43,10 +43,16 @@ public class FindFragment extends Fragment {
         find_bt_02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getContext(),Main4Activity.class));
+            }
+        });
+       /* find_bt_02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Main4Activity.class);
                 startActivity(intent);
             }
-        });
+        });*/
         find_bt_03=(LinearLayout)view.findViewById(R.id.find_bt_03);
         find_bt_03.setOnClickListener(new View.OnClickListener() {
             @Override
