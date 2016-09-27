@@ -126,7 +126,7 @@ public class FriendsFragment extends Fragment {
 //
 //            }
 //        });
-   }
+
 
    /* public void Friend(){
         String url="http://icoral.cn:1199/twitter/?toxid=";
@@ -206,11 +206,10 @@ public class FriendsFragment extends Fragment {
 
             super.onPostExecute(result);
         }
-<<<<<<< HEAD
-    }*/
 
-=======
     }
+
+
 */
->>>>>>> 6eed5599947c0efa5d0628889ecf2ec8cf51d72b
+
 }
