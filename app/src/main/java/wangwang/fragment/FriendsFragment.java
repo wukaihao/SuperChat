@@ -57,7 +57,7 @@ public class FriendsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_friends, container, false);
+        return inflater.inflate(R.layout.header, container, false);
     }
 
 //    @Override
@@ -69,7 +69,7 @@ public class FriendsFragment extends Fragment {
 //        }
 //    }
 
-
+/*lby 2016/8/30  上面布局改成了header
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -205,5 +205,5 @@ public class FriendsFragment extends Fragment {
             super.onPostExecute(result);
         }
     }
-
+*/
 }

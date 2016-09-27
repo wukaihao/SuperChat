@@ -105,6 +105,7 @@ class ContactListAdapter(private var context: Context) extends BaseAdapter with 
     } else {
       holder = newConvertView.getTag.asInstanceOf[ViewHolder]
     }
+
     val item = getItem(position)
     holder.firstText.setText(item.first)
     holder.firstText.setTextColor(context.getResources.getColor(R.color.black))
@@ -149,12 +150,16 @@ class ContactListAdapter(private var context: Context) extends BaseAdapter with 
       } else {
         holder.icon.setBackgroundDrawable(drawable)
       }
+
       if (item.favorite) {
         holder.favorite.setVisibility(View.VISIBLE)
       } else {
         holder.favorite.setVisibility(View.GONE)
       }
+
     }
+
+
     if (holder.timeText != null) {
       holder.timeText.setTextColor(context.getResources.getColor(R.color.grey_dark))
     }
