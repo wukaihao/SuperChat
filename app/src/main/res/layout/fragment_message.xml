@@ -1,14 +1,115 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.wangwang.wangwang.fragment.MessageFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/contact_list"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_absolute"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ListView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/list_message_list">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    </ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-</FrameLayout>
+            <include layout="@layout/layout_titlebar_search"/>
+
+            <ListView
+                android:id="@+id/lv_message_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/grey_bg"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_constant"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:text="常聊联系人"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="5dp"/>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/room_recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center_vertical"
+                android:scrollbars="none">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/grey_bg"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_morechat"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:text="更多对话"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="5dp"/>
+
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:id="@+id/center_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/main_recent_no"
+                android:textColor="@color/grey_darker"
+                android:textSize="@dimen/text_large"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/list_divider"/>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <ListView
+                    android:id="@+id/lv_messsage_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white_absolute"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0dp"
+                    android:footerDividersEnabled="false"
+                    android:headerDividersEnabled="true"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
+

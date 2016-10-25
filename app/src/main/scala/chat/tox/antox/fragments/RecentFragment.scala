@@ -9,7 +9,7 @@ import chat.tox.antox.adapters.ContactListAdapter
 import chat.tox.antox.utils.{LeftPaneItem, TimestampUtils}
 import chat.tox.antox.wrapper._
 
-class RecentFragment extends AbstractContactsFragment(showSearch = false, showFab = false) {
+class RecentFragment extends AbstractMessageFragment(showSearch = true, showFab = true) {
 
   override def updateContacts(contactInfoTuple: (Seq[FriendInfo], Seq[FriendRequest],
     Seq[GroupInvite], Seq[GroupInfo])) {
@@ -21,10 +21,14 @@ class RecentFragment extends AbstractContactsFragment(showSearch = false, showFa
     }
   }
 
+  def initView() = {
+
+  }
+
   override def onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View = {
     val rootView = super.onCreateView(inflater, container, savedInstanceState)
     rootView.findViewById(R.id.center_text).setVisibility(View.VISIBLE)
-
+    initView()
     rootView
   }
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="grey_bg">#F9F9F9</color>
+    <color name="grey_text">#A9A9AA</color>
     <color name="white_absolute">#ffffff</color>
     <!--<color name="white">#f3f3f3</color>-->
     <color name="grey_light">#EAEAEA</color>
