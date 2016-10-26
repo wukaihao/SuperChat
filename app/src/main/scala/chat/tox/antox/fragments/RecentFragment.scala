@@ -3,15 +3,25 @@ package chat.tox.antox.fragments
 import java.sql.Timestamp
 
 import android.os.Bundle
+import android.support.v7.widget.RecyclerView
 import android.view.{LayoutInflater, View, ViewGroup}
+import android.widget.{TextView, ListView}
 import chat.tox.antox.R
 import chat.tox.antox.adapters.ContactListAdapter
 import chat.tox.antox.utils.{LeftPaneItem, TimestampUtils}
 import chat.tox.antox.wrapper._
 
-class RecentFragment extends AbstractMessageFragment(showSearch = true, showFab = true) {
+ abstract class RecentFragment extends AbstractMessageFragment(showSearch = true, showFab = true) {
 
-  override def updateContacts(contactInfoTuple: (Seq[FriendInfo], Seq[FriendRequest],
+   var lv_message_top : ListView = _
+   var tv_constant : TextView = _
+   var room_recycleView : RecyclerView = _
+   var tv_morechat : TextView = _
+   var lv_message_boom: ListView = _
+   val topListViewAdapter : TopListViewAdapter = _
+
+
+   override def updateContacts(contactInfoTuple: (Seq[FriendInfo], Seq[FriendRequest],
     Seq[GroupInvite], Seq[GroupInfo])) {
     contactInfoTuple match {
       case (friendsList, friendRequests, groupInvites, groupList) =>
@@ -22,7 +32,7 @@ class RecentFragment extends AbstractMessageFragment(showSearch = true, showFab 
   }
 
   def initView() = {
-
+    topListViewAdapter = new TopListViewAdapter(getContext)
   }
 
   override def onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View = {
